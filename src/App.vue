@@ -1,17 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <component-a />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ComponentA from "./components/ComponentA.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    ComponentA,
+  },
+  data() {
+    return {
+      userName: "Raju Rastogi",
+    };
+  },
+  methods: {
+    add() {
+      console.log("add is exicuted");
+    },
+  },
+  provide() {
+    return {
+      userName: this.userName,
+      oneFunc: this.add,
+    };
+  },
+};
 </script>
 
 <style>
